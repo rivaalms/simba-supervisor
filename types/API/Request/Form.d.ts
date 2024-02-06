@@ -15,6 +15,11 @@ declare namespace API.Request.Form {
       token: string | null
    }
 
+   type CheckResetPasswordToken = {
+      email: string | null
+      token: string | null
+   }
+
    type Profile = {
       name: string
       email: string
@@ -23,5 +28,12 @@ declare namespace API.Request.Form {
       school_type_id: number
       principal: string | null
       address: string | null
+   }
+
+   type Comment = {
+      user_id: number | null
+      data_id: number | null
+      message: string | null
+      reply_to: number | null
    }
 }
