@@ -25,8 +25,12 @@ export default defineNuxtConfig({
    runtimeConfig: {
       public: {
          apiBaseUrl: '',
-         appName: 'SIMBA School'
+         appName: 'SIMBA Supervisor'
       }
+   },
+
+   devServer: {
+      port: 3080
    },
 
    imports: {
