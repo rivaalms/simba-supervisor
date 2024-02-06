@@ -1,0 +1,3 @@
+<template>
+   SIMBA Supervisor
+</template>
