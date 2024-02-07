@@ -3,6 +3,7 @@
 
    <main class="relative mt-[105px] mb-4 min-h-[calc(100dvh-105px-56px-1rem)]">
       <div class="container mx-auto">
+         <app-title></app-title>
          <slot/>
       </div>
    </main>
