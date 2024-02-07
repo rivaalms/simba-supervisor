@@ -6,7 +6,7 @@ type Options = {
    body?: Wildcard
 }
 
-export async function $api(url: string, opts?: { [key: string]: any }) : Promise<unknown> {
+export async function $api(url: string, opts?: Options) : Promise<unknown> {
    const baseUrl = useRuntimeConfig().public.apiBaseUrl
    const authStore = useAuthStore()
    const store = useAppStore()
