@@ -7,7 +7,7 @@ declare namespace Model {
       message: string
       created_at?: string | null
       updated_at?: string | null
-      user?: Model.User
+      user?: Model.User<School | Supervisor | Officer | null>
       replies?: Model.Comment[]
    }
 }
