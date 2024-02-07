@@ -35,3 +35,13 @@ export async function getSubjectOptions () : Promise <Utility.SelectOption[]> {
    }) as API.Response <Utility.SelectOption[]>
    return response.data
 }
+
+export async function getSchoolOptions () : Promise <Utility.SelectOption[]> {
+   const response = await $api(`/options/schools`, {
+      method: 'get',
+      query: {
+         supervisor: useAuthStore().getUser?.userable_id
+      }
+   }) as API.Response <Utility.SelectOption[]>
+   return response.data
+}
