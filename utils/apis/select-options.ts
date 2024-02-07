@@ -1,47 +1,47 @@
 export async function getDataCategoryOptions () : Promise <Utility.SelectOption[]> {
-   const response = await $api ('/options/data-categories', {
+   const response = await $api <API.Response <Utility.SelectOption[]>> ('/options/data-categories', {
       method: 'get'
-   }) as API.Response <Utility.SelectOption[]>
+   })
    return response.data
 }
 
 export async function getDataTypeOptions (categoryId: number) : Promise <Utility.SelectOption[]> {
-   const response = await $api ('/options/data-types', {
+   const response = await $api <API.Response <Utility.SelectOption[]>> ('/options/data-types', {
       method: 'get',
       query: {
          category: categoryId
       }
-   }) as API.Response <Utility.SelectOption[]>
+   })
    return response.data
 }
 
 export async function getDataStatusOptions () : Promise <Utility.SelectOption[]> {
-   const response = await $api ('/options/data-status', {
+   const response = await $api <API.Response <Utility.SelectOption[]>> ('/options/data-status', {
       method: 'get'
-   }) as API.Response <Utility.SelectOption[]>
+   })
    return response.data
 }
 
 export async function getReligionOptions () : Promise <Utility.SelectOption[]> {
-   const response = await $api('/options/religions', {
+   const response = await $api <API.Response <Utility.SelectOption[]>>('/options/religions', {
       method: 'get'
-   }) as API.Response <Utility.SelectOption[]>
+   })
    return response.data
 }
 
 export async function getSubjectOptions () : Promise <Utility.SelectOption[]> {
-   const response = await $api('/options/subjects', {
+   const response = await $api <API.Response <Utility.SelectOption[]>>('/options/subjects', {
       method: 'get'
-   }) as API.Response <Utility.SelectOption[]>
+   })
    return response.data
 }
 
 export async function getSchoolOptions () : Promise <Utility.SelectOption[]> {
-   const response = await $api(`/options/schools`, {
+   const response = await $api <API.Response <Utility.SelectOption[]>>(`/options/schools`, {
       method: 'get',
       query: {
          supervisor: useAuthStore().getUser?.userable_id
       }
-   }) as API.Response <Utility.SelectOption[]>
+   })
    return response.data
 }
