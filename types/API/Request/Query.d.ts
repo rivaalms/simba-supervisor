@@ -24,6 +24,7 @@ declare namespace API.Request.Query {
       status?: number | string | null
       per_page?: number | string
       page?: number
+      supervisor?: number | string | null
    }
 
    type Growth = {

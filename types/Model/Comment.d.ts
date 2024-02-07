@@ -9,6 +9,5 @@ declare namespace Model {
       updated_at?: string | null
       user?: Model.User
       replies?: Model.Comment[]
-      replies_visible?: boolean
    }
 }

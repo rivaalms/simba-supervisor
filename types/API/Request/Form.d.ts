@@ -30,6 +30,14 @@ declare namespace API.Request.Form {
       address: string | null
    }
 
+   type Data = {
+      school_id: number | string | null
+      year: string | null
+      data_type_id: number | string | null
+      data_status_id: number | string | null
+      file?: File | Blob
+   }
+
    type Comment = {
       user_id: number | null
       data_id: number | null
