@@ -10,6 +10,14 @@ export async function getData (payload: API.Request.Query.Data) : Promise <Utili
    return response.data
 }
 
+export async function getDataDetails (id: number) : Promise <Model.Data> {
+   const response = await $api <API.Response <Model.Data>> (`/data/${id}`, {
+      method: 'get'
+   })
+
+   return response.data
+}
+
 export async function updateData (dataId: number, payload: Omit <API.Request.Form.Data, 'file'>) : Promise <string> {
    const response = await $api <API.Response <boolean>> (`/data/${dataId}`, {
       method: 'put',
