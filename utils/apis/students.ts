@@ -13,11 +13,3 @@ export async function getStudentsGrowth (schoolId: number, payload: API.Request.
    })
    return response.data
 }
-
-export async function countStudent (year: string) : Promise <number> {
-   const response = await $api <API.Response <number>> (`/school-students/count`, {
-      method: 'get',
-      query: { year }
-   })
-   return response.data
-}

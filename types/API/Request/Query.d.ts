@@ -10,6 +10,8 @@ declare namespace API.Request.Query {
       school_id: number | string
    }
 
+   type Teacher = Student
+
    type Subject = API.Request.Query.Religion
 
    type Comment = {
@@ -25,6 +27,14 @@ declare namespace API.Request.Query {
       per_page?: number | string
       page?: number
       supervisor?: number | string | null
+   }
+
+   type School = {
+      supervisor?: number | null
+      search?: string | null
+      type?: number | null
+      per_page?: number | string
+      page?: number
    }
 
    type Growth = {

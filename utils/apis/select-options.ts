@@ -45,3 +45,10 @@ export async function getSchoolOptions () : Promise <Utility.SelectOption[]> {
    })
    return response.data
 }
+
+export async function getSchoolTypeOptions () : Promise <Utility.SelectOption[]> {
+   const response = await $api <API.Response <Utility.SelectOption[]>> (`/options/school-types`, {
+      method: 'get',
+   })
+   return response.data
+}
