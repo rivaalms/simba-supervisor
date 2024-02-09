@@ -23,7 +23,7 @@ type Breadcrumb = {
 
 type NotificationColor = 'gray' | typeof colors[number]
 
-export const useAppStore = defineStore('app', {
+export const useAppStore = defineStore('supervisor-app', {
    persist: true,
 
    state: () : State => ({
