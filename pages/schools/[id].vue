@@ -259,7 +259,7 @@ const chartOptions = computed(() => ({
       id: 'studentGrowth',
       type: 'line'
    },
-   colors: ['#3b82f6'],
+   colors: ['#14b8a6'],
    dataLabels: {
       style: {
          fontSize: '12px',

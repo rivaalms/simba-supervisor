@@ -231,13 +231,13 @@ const actionMenu = (row: Model.Data) => ([
          click: () => downloadDataFile(row)
             .then(() => store.notify('success', 'Data berhasil diunduh', 'download-data-file'))
       },
+   ],
+   [
       {
          label: 'Lihat detail',
-         class: 'text-primary',
-         iconClass: 'text-primary',
          icon: 'i-heroicons-document-magnifying-glass-20-solid',
          click: () => navigateTo(`/data/${row.id}`)
       },
-   ],
+   ]
 ])
 </script>
