@@ -210,12 +210,12 @@ const { data: teachers, pending: teachersLoading, refresh: fetchTeachers } = awa
 
 const studentCount = computed(() => {
    if (!students.value) return 0
-   return students.value.map(student => student.total).reduce((sum, current) => sum + current)
+   return students.value.map(student => student.total).reduce((sum, current) => sum + current, 0)
 })
 
 const teacherCount = computed(() => {
    if (!teachers.value) return 0
-   return teachers.value.map(teacher => teacher.value as number).reduce((sum, current) => sum + current)
+   return teachers.value.map(teacher => teacher.value as number).reduce((sum, current) => sum + current, 0)
 })
 
 const { data: studentsGrowth, pending: studentsGrowthLoading, refresh: fetchStudentsGrowth } = await useAsyncData('students-growth', () => getStudentsGrowth(schoolId.value, growthFilter.value), { watch: [ () => growthFilter.value.start_year, () => growthFilter.value.end_year ] })
