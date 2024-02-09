@@ -77,7 +77,7 @@ export default defineNuxtConfig({
          'emerald',
          'cyan'
       ],
-      icons: ['heroicons', 'octicon']
+      icons: ['heroicons', 'octicon', 'fa6-solid']
    },
 
    colorMode: {
