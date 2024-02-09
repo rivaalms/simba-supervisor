@@ -27,6 +27,14 @@ export async function updateData (dataId: number, payload: Omit <API.Request.For
    return response.message!
 }
 
+export async function updateDataStatus (dataId: number, status: number) : Promise <string> {
+   const response = await $api <API.Response <boolean>> (`/data/${dataId}/update-status`, {
+      method: 'put',
+      body: { data_status_id: status }
+   })
+   return response.message!
+}
+
 export async function downloadDataFile (data: Model.Data) : Promise <boolean> {
    try {
       const response = await $api <Blob> (`/data/download`, {

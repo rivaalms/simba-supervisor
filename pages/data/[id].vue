@@ -39,6 +39,20 @@
                   >
                      Unduh File
                   </u-button>
+
+                  <u-dropdown
+                     v-if="data?.data_status_id === 1 || data?.data_status_id === 4"
+                     :items="updateDataStatusItems"
+                  >
+                     <u-button
+                        block
+                        class="mt-2"
+                        :loading="updateStatusLoading"
+                        icon="i-heroicons-clipboard-document-list-16-solid"
+                     >
+                        Perbarui Status Data
+                     </u-button>
+                  </u-dropdown>
                </div>
             </div>
          </u-card>
@@ -158,17 +172,9 @@
 const store = useAppStore()
 store.setPageTitle('Detail Data')
 store.setBreadcrumb([
-   {
-      label: 'Home',
-      to: '/'
-   },
-   {
-      label: 'Data',
-      to: '/data'
-   },
-   {
-      label: 'Detail'
-   }
+   { label: 'Home', to: '/' },
+   { label: 'Data', to: '/data' },
+   { label: 'Detail' }
 ])
 
 const isDownloading = ref<boolean>(false)
@@ -191,18 +197,32 @@ const isReplyingTo = ref<Model.Comment | null>(null)
 const { data, pending: dataLoading, refresh: fetchDataDetails } = await useAsyncData('data-details', () => getDataDetails(parseInt(useRoute().params.id as string)))
 const { data: comments, pending: commentLoading, refresh: fetchComments } = await useAsyncData('comments', () => getComments(parseInt(useRoute().params.id as string), { sort: commentSort.value }), { watch: [commentSort] })
 
+const updateDataStatusItems = computed(() => [
+   [
+      {
+         label: 'Terverifikasi',
+         icon: 'i-heroicons-check-16-solid',
+         class: 'text-emerald-500',
+         iconClass: 'text-emerald-500',
+         click: async () => await updateStatus(true)
+      },
+      {
+         label: 'Revisi',
+         icon: 'i-heroicons-x-mark-16-solid',
+         class: 'text-amber-500',
+         iconClass: 'text-amber-500',
+         click: async () => await updateStatus(false)
+      },
+   ]
+])
+
 const mapStatusColor = (id: number) => {
    switch (id) {
-      case 1:
-         return 'gray'
-      case 2:
-         return 'emerald'
-      case 3:
-         return 'amber'
-      case 4:
-         return 'cyan'
-      default:
-         return 'primary'
+      case 1: return 'gray'
+      case 2: return 'emerald'
+      case 3: return 'amber'
+      case 4: return 'cyan'
+      default: return 'primary'
    }
 }
 
@@ -241,5 +261,18 @@ const download = async () => {
          store.notify('success', 'Data berhasil diunduh', 'download-file-success')
       })
       .finally(() => isDownloading.value = false)
+}
+
+const updateStatusLoading = ref<boolean>(false)
+
+const updateStatus = async (verified: boolean) => {
+   updateStatusLoading.value = true
+   const status: number = verified ? 2 : 3
+   await updateDataStatus(data.value!.id, status)
+      .then(async (resp) => {
+         store.notify('success', resp)
+         await fetchDataDetails()
+      })
+      .finally(() => updateStatusLoading.value = false)
 }
 </script>
