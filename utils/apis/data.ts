@@ -57,3 +57,14 @@ export async function downloadDataFile (data: Model.Data) : Promise <boolean> {
       throw e
    }
 }
+
+export async function countData ({ start_year, end_year }: Wildcard) : Promise <Utility.Map.DataCount> {
+   const response = await $api <API.Response <Utility.Map.DataCount>> (`/data/count`, {
+      method: 'get',
+      query: {
+         start_year,
+         end_year
+      }
+   })
+   return response.data
+}

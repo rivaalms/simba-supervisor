@@ -1,3 +1,8 @@
+type CountSchool = {
+   total: number
+   by_type: { type: string, count: number }[]
+}
+
 export async function getSchools (payload: API.Request.Query.School) : Promise <Utility.DataTable<Model.School[]>> {
    const query = { ...payload }
    query.supervisor = useAuthStore().getUser?.userable_id || query.supervisor
@@ -11,6 +16,13 @@ export async function getSchools (payload: API.Request.Query.School) : Promise <
 
 export async function getSchoolDetails (school_id: number) : Promise <Model.School> {
    const response = await $api <API.Response <Model.School>> (`/school/${school_id}`, {
+      method: 'get'
+   })
+   return response.data
+}
+
+export async function countSchools () : Promise <CountSchool> {
+   const response = await $api <API.Response <CountSchool>> (`/schools/count`, {
       method: 'get'
    })
    return response.data
