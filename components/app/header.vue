@@ -73,8 +73,11 @@ const dropdownItems = computed(() => [
          label: 'Keluar',
          slot: 'logout',
          icon: 'i-heroicons-arrow-left-start-on-rectangle-16-solid',
-         click: () => {
-            store.showDialog('logout', 'Keluar')
+         click: async () => {
+            await authStore.logout()
+               .then(() => {
+                  store.notify('info', 'Berhasil log out', 'logout')
+               })
          }
       }
    ]
