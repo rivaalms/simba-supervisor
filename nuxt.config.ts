@@ -33,6 +33,8 @@ export default defineNuxtConfig({
       port: 3080
    },
 
+   spaLoadingTemplate: true,
+
    imports: {
       dirs: [
          'composables',
