@@ -1,41 +1,40 @@
-# Nuxt 3 Minimal Starter
+# SIMBA Supervisor
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Supervisor Platform for SIMBA Web Apps.
+
+## Prerequisites
+
+Make sure these modules are available on your system:
+
+- nodejs `v21.1.0`
+
+- yarn `^1.19` OR bun `^1.1`
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
 # yarn
 yarn install
 
 # bun
-bun install
+bun i
+
+# bun & generate yarn lockfile
+bun i -y
 ```
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
+Start the development server on `http://localhost:3080`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
 # yarn
 yarn dev
 
 # bun
-bun run dev
+bun dev
 ```
 
 ## Production
@@ -43,33 +42,21 @@ bun run dev
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
 # yarn
 yarn build
 
 # bun
-bun run build
+bun build
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
 # yarn
 yarn preview
 
 # bun
-bun run preview
+bun preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

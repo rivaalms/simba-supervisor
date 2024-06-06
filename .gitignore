@@ -22,8 +22,3 @@ logs
 .env
 .env.*
 !.env.example
-
-# Lockfiles
-bun.lockb
-yarn.lock
-package.lock
