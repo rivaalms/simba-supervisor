@@ -34,10 +34,10 @@ export const useAuthStore = defineStore('supervisor-auth', {
 
       async logout() {
          await $logout()
-            .then(() => {
+            .then(async () => {
                this.user = null
                this.token = null
-               navigateTo('/login')
+               await navigateTo('/login')
             })
       }
    }

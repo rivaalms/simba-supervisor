@@ -84,9 +84,9 @@ const submit = async () => {
    loading.value = true
 
    await authStore.login(state.value)
-      .then(() => {
+      .then(async () => {
          store.notify('success', 'Berhasil log in', 'login')
-         navigateTo('/')
+         await navigateTo('/')
       })
       .finally(() => loading.value = false)
 }

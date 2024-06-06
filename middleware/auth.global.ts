@@ -1,4 +1,4 @@
-export default defineNuxtRouteMiddleware((to, from) => {
+export default defineNuxtRouteMiddleware(async (to, from) => {
    const authStore = useAuthStore()
    const excludedRoutes = [
       'login'
@@ -9,10 +9,10 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
    if (shouldRedirectToLogin) {
       authStore.$reset()
-      return navigateTo('/login')
+      return await navigateTo('/login')
    }
 
    else if (shouldRedirectToHome) {
-      return navigateTo('/')
+      return await navigateTo('/')
    }
 })
