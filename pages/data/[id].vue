@@ -80,42 +80,6 @@
 
       <div class="col-span-2 place-self-start grid gap-2 w-full">
          <u-card>
-            <template #header>
-               <div class="flex items-center justify-between">
-                  Komentar
-
-                  <u-select-menu
-                     v-model="commentSort"
-                     :options="commentSortOptions"
-                     value-attribute="value"
-                     @update:model-value="fetchComments"
-                  ></u-select-menu>
-               </div>
-            </template>
-
-            <dialog-placeholder v-if="commentLoading"/>
-
-            <template v-else>
-               <div v-if="(comments?.length || 0) < 1" class="flex flex-col items-center gap-2 text-gray-500">
-                  <u-icon name="i-tabler-message-2-x"></u-icon>
-
-                  <p class="text-sm">
-                     Belum ada komentar
-                  </p>
-               </div>
-
-               <div v-else class="grid divide-y">
-                  <comment-block
-                     v-for="comment in comments"
-                     :comment="comment"
-                     :data="data!"
-                     @reply="replyToComment"
-                  />
-               </div>
-            </template>
-         </u-card>
-
-         <u-card>
             <div class="grid gap-4">
                <u-alert
                   v-if="isReplyingTo"
@@ -163,6 +127,42 @@
                   </u-button>
                </div>
             </div>
+         </u-card>
+
+         <u-card>
+            <template #header>
+               <div class="flex items-center justify-between">
+                  Komentar
+
+                  <u-select-menu
+                     v-model="commentSort"
+                     :options="commentSortOptions"
+                     value-attribute="value"
+                     @update:model-value="fetchComments"
+                  ></u-select-menu>
+               </div>
+            </template>
+
+            <dialog-placeholder v-if="commentLoading"/>
+
+            <template v-else>
+               <div v-if="(comments?.length || 0) < 1" class="flex flex-col items-center gap-2 text-gray-500">
+                  <u-icon name="i-tabler-message-2-x"></u-icon>
+
+                  <p class="text-sm">
+                     Belum ada komentar
+                  </p>
+               </div>
+
+               <div v-else class="grid divide-y">
+                  <comment-block
+                     v-for="comment in comments"
+                     :comment="comment"
+                     :data="data!"
+                     @reply="replyToComment"
+                  />
+               </div>
+            </template>
          </u-card>
       </div>
    </div>
