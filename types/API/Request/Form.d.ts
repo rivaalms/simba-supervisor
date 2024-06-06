@@ -24,10 +24,7 @@ declare namespace API.Request.Form {
       name: string
       email: string
       password: string
-      supervisor_id: number
-      school_type_id: number
-      principal: string | null
-      address: string | null
+      employee_number: string | number
    }
 
    type Data = {

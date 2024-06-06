@@ -29,7 +29,8 @@ const component = ref(resolveComponent('DialogPlaceholder'))
 const width = ref('sm:max-w-lg')
 
 const componentMap : Wildcard = {
-   'logout': () => import('@/components/dialog/logout.vue'),
+   // 'logout': () => import('@/components/dialog/logout.vue'),
+   'profile-update': () => import('@/components/dialog/form/profile.vue')
 }
 
 const widthMap : Wildcard = {

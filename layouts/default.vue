@@ -9,6 +9,7 @@
    </main>
 
    <app-footer></app-footer>
+   <app-dialog></app-dialog>
 </template>
 
 <script setup lang="ts">
